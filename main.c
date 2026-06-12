@@ -76,6 +76,27 @@ int decompress(char* input, char* output) {
 }
 int main()
 {
-    printf("Hello World!\n");
+    char input[256];
+    char output[256];
+    int choice;
+
+    printf("1 - Compress file\n");
+    printf("2 - Decompress file\n");
+    printf("Choose: ");
+    scanf_s("%d", &choice);
+
+    printf("Path to file: ");
+    scanf_s("%s", input, 256);
+    printf("Where to save: ");
+    scanf_s("%s", output, 256);
+    if (choice == 1) {
+        if (compress(input, output) == 0) printf("Compressed\n");
+        else printf("Compression error\n");
+    }
+    if(choice == 2) {
+        if (decompress(input, output) == 0) printf("Decompressed\n");
+        else printf("Compression error\n");
+    }
+
     return 0;
 }
